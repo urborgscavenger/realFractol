@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: MP9 <mikjimen@student.42heilbronn.de>      +#+  +:+       +#+        */
+/*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:47:27 by MP9               #+#    #+#             */
-/*   Updated: 2025/10/16 23:24:22 by MP9              ###   ########.fr       */
+/*   Updated: 2025/10/17 16:17:11 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	data_init(t_data *data)
+void	ft_🧮(t_data *data)
 {
 	data->image = ft_calloc(1, sizeof(t_image));
 	data->image->pixels = ft_calloc(1, sizeof(t_pixel));
@@ -67,7 +67,7 @@ int	main(/*int argc, char **argv*/)
 	data = ft_calloc(1, sizeof(t_data));
 	if (!data)
 		exit(STDERR_FILENO);
-	data_init(data);
+	ft_🧮(data);
 	data->mlx = mlx_init(WIDTH, HEIGHT, "fractol", false);
 	
 	fill_screen(data, data->image->pixels);

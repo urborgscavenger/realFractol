@@ -6,17 +6,18 @@
 #    By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 16:41:21 by MP9               #+#    #+#              #
-#    Updated: 2025/10/17 15:37:35 by mbauer           ###   ########.fr        #
+#    Updated: 2025/10/17 16:07:51 by mbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 OBJ_DIR = obj
-SRCFILES =	srcs/fractol.c \
+SRC_DIR = srcs
+SRCFILES =	$(SRC_DIR)/main.c \
 
 OBJS = $(SRCFILES:srcs/%.c=$(OBJ_DIR)/%.o)
 CC = cc
-CFLAGS = -Ofast -funroll-loops -flto -ftree-vectorize \
+CFLAGS = -Ofast -funroll-loops -ftree-vectorize \
 	-fomit-frame-pointer -finline-functions \
 	-Wall -Wextra -Werror -I./includes/ -I./libft/ \
 	-pthread 
@@ -65,13 +66,13 @@ $(LIBMLX):
 clean:
 		rm -rf $(OBJ_DIR)
 		$(MAKE) clean -C $(LIBFT_DIR)
-		@echo "library and object files cleaned." 
+		@echo "library and object inna splee" 
 
 fclean: clean
 		rm -f $(NAME)
 		$(MAKE) fclean -C $(LIBFT_DIR)
 		@rm -rf $(MLX42_DIR)
-		@echo "Executable and library cleaned."
+		@echo "Everything dead"
 
 re:
 		$(MAKE) fclean
