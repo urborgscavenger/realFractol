@@ -6,7 +6,7 @@
 #    By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 16:41:21 by mbauer            #+#    #+#              #
-#    Updated: 2025/10/17 16:26:12 by mbauer           ###   ########.fr        #
+#    Updated: 2025/10/17 16:29:39 by mbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ OBJS = $(SRCFILES:srcs/%.c=$(OBJ_DIR)/%.o)
 CC = cc
 CFLAGS = -Ofast -funroll-loops -ftree-vectorize \
 	-fomit-frame-pointer -finline-functions \
-	-Wall -Wextra -Werror -I./includes/ -I./libft/ \
+	-Wall -Wextra -Werror -I./includes/ -I./Libft/ \
 	-pthread 
 LDFLAGS := -ldl -lglfw -pthread -lm
 UNAME_S :=$(shell uname -s)
 
-LIBFT_DIR = ./libft
+LIBFT_DIR = ./Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 LIBMLX := ./MLX42/build/libmlx42.a
 
