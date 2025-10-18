@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:47:27 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/18 16:10:03 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/18 16:53:05 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,14 @@ t_data *ft_🧮(void)
 	data->image = ft_calloc(1, sizeof(mlx_image_t));
 	if (!data->image)
 	{
-		if (data->image)
-			free(data->image);
+		free(data->image);
+		free(data);
+		exit(1);
+	}
+	data->c = ft_calloc(1, sizeof(t_complex_num));
+	if (!data->c)
+	{
+		free(data->c);
 		free(data);
 		exit(1);
 	}

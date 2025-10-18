@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 23:33:39 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/17 16:23:47 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/18 16:17:54 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,3 @@ t_complex_num z_iterate(t_complex_num z, t_color color)
 	z_sqrd.real = z.real * z.real - z.imaginary * z.imaginary;
 	return (z_sqrd);
 }
-

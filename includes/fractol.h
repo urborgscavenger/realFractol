@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:46:48 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/18 16:10:45 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/18 16:52:05 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,12 @@ typedef struct s_image
 typedef struct s_data
 {
 	mlx_t			*mlx;
-	// t_image			*image;
 	mlx_image_t		*image;
+	t_complex_num	*c;
 	char			**args;
 	double			in_values;
 }					t_data;
+
+int	almondbread(t_data *data);
 
 #endif
