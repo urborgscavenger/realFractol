@@ -6,13 +6,13 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:11:08 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/17 16:23:34 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/17 18:27:41 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	parssing(int argc, char **argv, t_data *data)
+int	parsing(int argc, char **argv, t_data *data)
 {
 	if (argc < 2 || argc > 4)
 	{
