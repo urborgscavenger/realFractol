@@ -6,40 +6,29 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 22:09:49 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/18 23:09:00 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/20 19:40:41 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	almondbread(t_data *data)
+int	almondbread(double almond, double bread)
 {
-	//t_color colors;
 	double	x;
 	double	y;
+	double x2;
 	int		iteration;
 
-	x = 0;
-	y = 0;
+	x = 0.0;
+	y = 0.0;
+	x2 = 0;
 	iteration = 0;
-	data = (void *)data;
-	while (pow(x, x) + pow(y, y) <= 4 && iteration < MAX_ITER)
+	while (pow(x, x) + pow(y, y) <= 4.0 && iteration < MAX_ITER)
 	{
-		// colors.alpha = 255;
-		// colors.red = (iteration * 5) % 256;
-		// colors.green = (iteration * 15) % 256;
-		// colors.blue = (iteration * 25) % 256;
-		// mlx_put_pixel(data->image, x, y, colors.color);
-		// x++;
-		// if (x >= WIDTH)
-		// {
-		// 	x = 0;
-		// 	y++;
-		// }
-		// if (y >= HEIGHT)
-		// 	break ;
-		
+		x2 = x * x - y * y + almond; // Realteil: Re(z^2) + a
+		y = 2 * x * y + bread;                // Imaginärteil: Im(z^2) + b
+		x = x2;
 		iteration++;
 	}
-	return iteration;
+	return (iteration);
 }

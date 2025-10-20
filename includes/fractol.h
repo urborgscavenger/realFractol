@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:46:48 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/18 16:52:05 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/20 19:39:00 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_data
 	double			in_values;
 }					t_data;
 
-int	almondbread(t_data *data);
+int	almondbread(double almond, double bread);
+void    render_surrender(t_data *data);
 
 #endif

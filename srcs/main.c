@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:47:27 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/18 16:53:05 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/20 12:43:43 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ int	main(/*int argc, char **argv*/)
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	data = ft_🧮();
 	data->mlx = mlx_init(WIDTH, HEIGHT, "fractol", false);
-	fill_screen(data);
+	// fill_screen(data);
+	render_surrender(data);
 	mlx_loop_hook(data->mlx, ft_hook, data->mlx);
 	mlx_loop(data->mlx);
 	//mlx_delete_image(data->mlx, data->image);

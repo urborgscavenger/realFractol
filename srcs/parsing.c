@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:11:08 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/17 18:27:41 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/20 19:44:32 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	parsing(int argc, char **argv, t_data *data)
 void	error_handle(t_data *data)
 {
 	free(data->image);
-	free(data->image->pixels);
+	free(data->c);
 	free(data);
 	exit(1);
 }
