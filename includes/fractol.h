@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:46:48 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/22 14:44:33 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/22 16:49:36 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ typedef struct s_image
 	// t_pixel			*pixels;
 }					t_image;
 
+//almondx = mousepos_x bread_y = mousepos_y
 typedef struct s_data
 {
 	mlx_t			*mlx;
 	mlx_image_t		*image;
-	t_complex_num	*c;
 	double			zoom;
     double			almond_x;
     double			bread_y;
@@ -72,5 +72,6 @@ typedef struct s_data
 
 int	almondbread(double almond, double bread);
 void    render_surrender(t_data *data);
+void	free_all(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:47:27 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/22 14:46:08 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/22 16:29:38 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ t_data *ft_🧮(void)
 		free(data);
 		exit(1);
 	}
-	data->c = ft_calloc(1, sizeof(t_complex_num));
-	if (!data->c)
-	{
-		free(data->c);
-		free(data);
-		exit(1);
-	}
+	// data->c = ft_calloc(1, sizeof(t_complex_num));
+	// if (!data->c)
+	// {
+	// 	free(data->c);
+	// 	free(data);
+	// 	exit(1);
+	// }
 	data->zoom = 1.0;
     data->almond_x = 0.0;
     data->bread_y = 0.0;
@@ -50,6 +50,19 @@ void	ft_hook(void *param)
 
 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(mlx);
+}
+
+void	ft_scroll_hook(double scroll_x, double scroll_y, void *param)
+{
+	t_data	*data;
+
+	data = param;
+	(void)scroll_x;
+	if (scroll_y > 0)
+		data->zoom *= 1.4;
+	else if (scroll_y < 0)
+		data->zoom /= 1.4;
+	render_surrender(data);
 }
 
 void	fill_screen(t_data *data)
@@ -89,7 +102,7 @@ int	main(/*int argc, char **argv*/)
 	// fill_screen(data);
 	render_surrender(data);
 	mlx_loop_hook(data->mlx, ft_hook, data->mlx);
-	mlx_scroll_hook(data->mlx, NULL, NULL);
+	mlx_scroll_hook(data->mlx, ft_scroll_hook, data);
 	mlx_loop(data->mlx);
 	//mlx_delete_image(data->mlx, data->image);
 	return (0);

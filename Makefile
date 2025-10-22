@@ -6,14 +6,14 @@
 #    By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 16:41:21 by mbauer            #+#    #+#              #
-#    Updated: 2025/10/20 12:42:38 by mbauer           ###   ########.fr        #
+#    Updated: 2025/10/22 16:56:20 by mbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 OBJ_DIR = obj
 SRC_DIR = srcs
-SRCFILES =	$(SRC_DIR)/main.c $(SRC_DIR)/almondbread.c $(SRC_DIR)/surrender.c
+SRCFILES =	$(SRC_DIR)/main.c $(SRC_DIR)/almondbread.c $(SRC_DIR)/surrender.c $(SRC_DIR)/parsing.c
 
 OBJS = $(SRCFILES:srcs/%.c=$(OBJ_DIR)/%.o)
 CC = cc

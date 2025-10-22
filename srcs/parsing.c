@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:11:08 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/20 19:44:32 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/22 16:48:49 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,21 @@ int	parsing(int argc, char **argv, t_data *data)
 		julia(data, argv);
 	else
 	{
-		print_parameters();
-		error_handle(data);
+		free_all(data);
 	}
 }
 
-void	error_handle(t_data *data)
+void	free_all(t_data *data)
 {
+	free(data->mlx);
 	free(data->image);
-	free(data->c);
 	free(data);
 	exit(1);
 }
 
-void print_parameters(void)
-{
-	ft_printf("Usage:\n");
-	ft_printf("./fractol mandelbrot\n");
-	ft_printf("./fractol julia <real_part> <imaginary_part>\n");
-}
+// void print_parameters(void)
+// {
+// 	ft_putstr_fd("Benutzt:\n", 1);
+// 	ft_printf("./fractol mandelbrot\n");
+// 	ft_printf("./fractol julia <real_part> <imaginary_part>\n");
+// }

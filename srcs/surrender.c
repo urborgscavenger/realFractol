@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 16:28:02 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/22 14:38:56 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/22 16:50:16 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 // 3.0 = (1.0 - (-2.0))
 
-double map_x_to_a(int x)
+double map_x_to_almond(int x, t_data *data)
 {
-    return -2.0 + (3.0 * x / (double)WIDTH);
+	return (-2.0 + (3.0 * x / (double)WIDTH) / data->zoom);
 }
 
 // 3.0 = (1.5 - (-1.5))
 
-double map_y_to_b(int y)
+double map_y_to_bread(int y, t_data *data)
 {
-    return -1.5 + (3.0 * y / (double)HEIGHT);
+	return (-2.0 + (3.0 * y / (double)WIDTH) / data->zoom);
 }
 
 unsigned int get_color(int iter)
@@ -55,7 +55,7 @@ void    render_surrender(t_data *data)
     {
         while(x < WIDTH)
         {
-            mownay = almondbread(map_x_to_a(x), map_y_to_b(y));
+            mownay = almondbread(map_x_to_almond(x, data), map_y_to_bread(y, data));
 			color = get_color(mownay);
             mlx_put_pixel(data->image, x, y, color);
             x++;
