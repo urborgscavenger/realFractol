@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:47:27 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/20 12:43:43 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/22 14:46:08 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ t_data *ft_🧮(void)
 		free(data);
 		exit(1);
 	}
+	data->zoom = 1.0;
+    data->almond_x = 0.0;
+    data->bread_y = 0.0;
 	return (data);
 }
 
@@ -86,6 +89,7 @@ int	main(/*int argc, char **argv*/)
 	// fill_screen(data);
 	render_surrender(data);
 	mlx_loop_hook(data->mlx, ft_hook, data->mlx);
+	mlx_scroll_hook(data->mlx, NULL, NULL);
 	mlx_loop(data->mlx);
 	//mlx_delete_image(data->mlx, data->image);
 	return (0);

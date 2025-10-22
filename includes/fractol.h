@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:46:48 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/20 19:39:00 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/22 14:44:33 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # define JULIA 2
 # define MBROT 0
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 1600
+# define HEIGHT 1200
 
 # define MAX_ITER 100
 
@@ -63,6 +63,9 @@ typedef struct s_data
 	mlx_t			*mlx;
 	mlx_image_t		*image;
 	t_complex_num	*c;
+	double			zoom;
+    double			almond_x;
+    double			bread_y;
 	char			**args;
 	double			in_values;
 }					t_data;
