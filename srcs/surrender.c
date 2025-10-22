@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 16:28:02 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/22 16:50:16 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:31:20 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 
 double map_x_to_almond(int x, t_data *data)
 {
-	return (-2.0 + (3.0 * x / (double)WIDTH) / data->zoom);
+	return (-2.0 + (3.0 * x / (double)WIDTH) / data->zoom + data->almond_x);
 }
 
 // 3.0 = (1.5 - (-1.5))
 
 double map_y_to_bread(int y, t_data *data)
 {
-	return (-2.0 + (3.0 * y / (double)WIDTH) / data->zoom);
+	return (-2.0 + (3.0 * y / (double)WIDTH) / data->zoom + data->bread_y);
 }
 
 unsigned int get_color(int iter)
 {
     if (iter == MAX_ITER)
-        return 0x000000FF; // Schwarz = Teil der Menge
+        return 0xBC002DFF; // Schwarz = Teil der Menge
     double t = (double)iter / MAX_ITER;
     int r = (int)(9 * (1 - t) * t * t * t * 255);
     int g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
@@ -55,7 +55,7 @@ void    render_surrender(t_data *data)
     {
         while(x < WIDTH)
         {
-            mownay = almondbread(map_x_to_almond(x, data), map_y_to_bread(y, data));
+            mownay = data->fractal_type(map_x_to_almond(x, data), map_y_to_bread(y, data));
 			color = get_color(mownay);
             mlx_put_pixel(data->image, x, y, color);
             x++;

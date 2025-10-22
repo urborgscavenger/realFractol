@@ -6,11 +6,14 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 22:09:49 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/22 15:50:23 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:30:45 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+ // Realteil: z^2 + c
+ // Imaginärteil: z^2 + c
 
 int	almondbread(double almond, double bread)
 {
@@ -25,8 +28,8 @@ int	almondbread(double almond, double bread)
     iteration = 0;
     while ((x * x + y * y) <= 4.0 && iteration < MAX_ITER)
     {
-        x2 = x * x - y * y + almond;    // Realteil: z^2 + c
-        y = 2 * x * y + bread;          // Imaginärteil: z^2 + c
+        x2 = x * x - y * y + almond;
+        y = 2 * x * y + bread;
         x = x2;
         iteration++;
     }

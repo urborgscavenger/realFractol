@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:46:48 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/22 16:49:36 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:25:22 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct s_image
 	// t_pixel			*pixels;
 }					t_image;
 
+typedef int (*t_fractal_func)(double x, double y);
+
 //almondx = mousepos_x bread_y = mousepos_y
 typedef struct s_data
 {
@@ -68,10 +70,15 @@ typedef struct s_data
     double			bread_y;
 	char			**args;
 	double			in_values;
+	t_fractal_func	fractal_type;
 }					t_data;
 
-int	almondbread(double almond, double bread);
+int		almondbread(double almond, double bread);
+int		juliet(double almond, double bread);
 void    render_surrender(t_data *data);
 void	free_all(t_data *data);
-
+double  ft_todd(const char *str);
+int	parse_args(int argc, char **argv, t_data *data);
+double map_x_to_almond(int x, t_data *data);
+double map_y_to_bread(int y, t_data *data);
 #endif
