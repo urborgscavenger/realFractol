@@ -6,13 +6,13 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:47:27 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/23 16:56:57 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/23 21:41:43 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-t_data *ft_🧮(void)
+t_data	*ft_init(void)
 {
 	t_data	*data;
 
@@ -35,6 +35,30 @@ t_data *ft_🧮(void)
 	data->bread_y = 0.0;
 	return (data);
 }
+
+// t_data *ft_🧮(void)
+// {
+// 	t_data	*data;
+
+// 	data = ft_calloc(1, sizeof(t_data));
+// 	if (!data)
+// 	{
+// 		free(data);
+// 		return (NULL);
+// 	}
+// 	data->image = ft_calloc(1, sizeof(mlx_image_t));
+// 	data->args = ft_calloc(2, sizeof(double *));
+// 	if (!data->image)
+// 	{
+// 		free(data->image);
+// 		free(data);
+// 		exit(1);
+// 	}
+// 	data->zoom = 1.0;
+// 	data->almond_x = 0.0;
+// 	data->bread_y = 0.0;
+// 	return (data);
+// }
 
 void	ft_hook(void *param)
 {
@@ -125,14 +149,13 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
-	data = ft_🧮();
+	data = ft_init();
 	if (!data)
 		exit(1);
 	if (!parse_args(argc, argv, data))
 		exit(1);
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	data->mlx = mlx_init(WIDTH, HEIGHT, "fractol", false);
-	// fill_screen(data);
 	render_surrender(data);
 	mlx_loop_hook(data->mlx, ft_hook, data);
 	mlx_scroll_hook(data->mlx, ft_scroll_hook, data);

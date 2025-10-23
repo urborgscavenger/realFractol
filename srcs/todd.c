@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:22:36 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/23 16:57:28 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/23 21:39:46 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,11 @@ double	ft_todd(const char *str)
 	while (is_space(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
-		sign = (str[i++] == '-') ? -1 : 1;
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
 	while (ft_isdigit(str[i]))
 		result = result * 10.0 + (str[i++] - '0');
 	if (str[i] == '.')

@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:11:08 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/23 16:57:06 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/23 21:43:10 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	parse_args(int argc, char **argv, t_data *data)
 	if (argc < 2 || argc > 4)
 	{
 		print_err();
-		free_all(data);
 		return (0);
 	}
 	if ((!ft_strcmp(argv[1], "Mandelbrot") || !ft_strcmp(argv[1], "mandelbrot"))
@@ -61,7 +60,6 @@ int	parse_args(int argc, char **argv, t_data *data)
 		return (1);
 	}
 	print_err();
-	free_all(data);
 	return (0);
 }
 
