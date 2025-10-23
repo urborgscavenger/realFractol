@@ -14,7 +14,10 @@
 
 #include "../includes/fractol.h"
 
-int	juliet(double almond, double bread)
+// Realteil: z^2 + c und letyte x und y muss noch ersetz werden
+// Imaginärteil: z^2 + c
+
+int	juliet(double almond, double bread, char **args)
 {
     double	x;
     double	y;
@@ -27,8 +30,8 @@ int	juliet(double almond, double bread)
     iteration = 0;
     while ((x * x + y * y) <= 4.0 && iteration < MAX_ITER)
     {
-        x2 = x * x - y * y + x;    // Realteil: z^2 + c und letyte x und y muss noch ersetz werden
-        y = 2 * x * y + y;          // Imaginärteil: z^2 + c
+        x2 = x * x - y * y + ft_todd(args[2]);
+        y = 2 * x * y + ft_todd(args[3]);
         x = x2;
         iteration++;
     }

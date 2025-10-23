@@ -21,8 +21,8 @@
 # define JULIA 2
 # define MBROT 0
 
-# define WIDTH 1600
-# define HEIGHT 1200
+# define WIDTH 800
+# define HEIGHT 600
 
 # define MAX_ITER 100
 
@@ -38,11 +38,11 @@ typedef union color_u
 	uint32_t	color;
 }	t_color;
 
-typedef struct s_complex_nums
-{
-	double			real;
-	double			imaginary;
-}					t_complex_num;
+//typedef struct s_complex_nums
+//{
+//	double			real;
+//	double			imaginary;
+//}					t_complex_num;
 
 //TODO Data structs refactoren
 
@@ -58,7 +58,7 @@ typedef struct s_image
 	// t_pixel			*pixels;
 }					t_image;
 
-typedef int (*t_fractal_func)(double x, double y);
+typedef int (*t_fractal_func)(double x, double y, char **args);
 
 //almondx = mousepos_x bread_y = mousepos_y
 typedef struct s_data
@@ -73,8 +73,8 @@ typedef struct s_data
 	t_fractal_func	fractal_type;
 }					t_data;
 
-int		almondbread(double almond, double bread);
-int		juliet(double almond, double bread);
+int		almondbread(double almond, double bread, char **data);
+int		juliet(double almond, double bread, char **args);
 void    render_surrender(t_data *data);
 void	free_all(t_data *data);
 double  ft_todd(const char *str);

@@ -44,12 +44,15 @@ t_data *ft_🧮(void)
 
 void	ft_hook(void *param)
 {
-	mlx_t	*mlx;
+	t_data	*data;
 
-	mlx = param;
+	data = param;
 
-	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(mlx);
+	if (mlx_is_key_down(data->mlx, MLX_KEY_ESCAPE))
+	{
+		free_all(data);
+		mlx_close_window(data->mlx);
+	}		
 }
 
 // void	ft_scroll_hook(double scroll_x, double scroll_y, void *param)
@@ -86,8 +89,16 @@ void    ft_scroll_hook(double scroll_x, double scroll_y, void *param)
         data->zoom /= 1.1;
     data->almond_x += before_x - map_x_to_almond(mouse_x, data);
     data->bread_y += before_y - map_y_to_bread(mouse_y, data);
-    // mlx_delete_image(data->mlx, data->image);
+    mlx_delete_image(data->mlx, data->image);
     render_surrender(data);
+}
+
+void	ft_close_hook(void *param)
+{
+	t_data	*data;
+
+	data = param;
+	free_all(data);
 }
 
 // void	fill_screen(t_data *data)
@@ -121,16 +132,18 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	data = ft_🧮();
-	data->mlx = mlx_init(WIDTH, HEIGHT, "fractol", false);
-	// fill_screen(data);
 	if(!parse_args(argc, argv, data))
 		exit(1);
+	mlx_set_setting(MLX_STRETCH_IMAGE, true);
+	data->mlx = mlx_init(WIDTH, HEIGHT, "fractol", false);
+	// fill_screen(data);
 	render_surrender(data);
-	mlx_loop_hook(data->mlx, ft_hook, data->mlx);
+	mlx_loop_hook(data->mlx, ft_hook, data);
 	mlx_scroll_hook(data->mlx, ft_scroll_hook, data);
+	mlx_close_hook(data->mlx, ft_close_hook, data);
 	mlx_loop(data->mlx);
-	//mlx_delete_image(data->mlx, data->image);
+	mlx_delete_image(data->mlx, data->image);
+	mlx_terminate(data->mlx);
 	return (0);
 }

@@ -15,13 +15,14 @@
  // Realteil: z^2 + c
  // Imaginärteil: z^2 + c
 
-int	almondbread(double almond, double bread)
+int	almondbread(double almond, double bread, char **data)
 {
     double	x;
     double	y;
     double  x2;
     int		iteration;
 
+    (void)data;
     x = 0.0;
     y = 0.0;
     x2 = 0;

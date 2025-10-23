@@ -47,7 +47,6 @@ void    render_surrender(t_data *data)
 
     x = 0;
     y = 0;
-    color = 0x000000ff;
     mownay = 0;
     data->image = mlx_new_image(data->mlx, WIDTH, HEIGHT);
     mlx_image_to_window(data->mlx, data->image, 0, 0);
@@ -55,7 +54,7 @@ void    render_surrender(t_data *data)
     {
         while(x < WIDTH)
         {
-            mownay = data->fractal_type(map_x_to_almond(x, data), map_y_to_bread(y, data));
+            mownay = data->fractal_type(map_x_to_almond(x, data), map_y_to_bread(y, data), data->args);
 			color = get_color(mownay);
             mlx_put_pixel(data->image, x, y, color);
             x++;
