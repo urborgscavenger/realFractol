@@ -24,7 +24,7 @@
 # define WIDTH 800
 # define HEIGHT 600
 
-# define MAX_ITER 100
+# define MAX_ITER 42
 
 typedef union color_u
 {
@@ -81,4 +81,5 @@ double  ft_todd(const char *str);
 int	parse_args(int argc, char **argv, t_data *data);
 double map_x_to_almond(int x, t_data *data);
 double map_y_to_bread(int y, t_data *data);
+int is_valid_str(char *str);
 #endif

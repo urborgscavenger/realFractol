@@ -40,6 +40,20 @@ static double handle_decimals(const char *str, int *i)
     return (result);
 }
 
+int is_valid_str(char *str)
+{
+    int i;
+
+    i = 0;
+    while(str[i])
+    {
+        if (!is_valid_char(str[i]))
+            return (0);
+        i++;
+    }
+    return (1);
+}
+
 double  ft_todd(const char *str)
 {
     double  result;

@@ -49,7 +49,8 @@ int	parse_args(int argc, char **argv, t_data *data)
 		data->fractal_type = almondbread;
 	else if ((!ft_strcmp(argv[1], "Julia")
 		|| !ft_strcmp(argv[1], "julia")) 
-		&& argc == 4)
+		&& argc == 4 && is_valid_str(argv[2]) 
+		&& is_valid_str(argv[3]))
 	{
 		data->fractal_type = juliet;
 		data->args = argv;
