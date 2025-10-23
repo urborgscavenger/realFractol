@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:46:48 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/22 18:25:22 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/23 16:32:27 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define WIDTH 800
 # define HEIGHT 600
 
-# define MAX_ITER 42
+# define MAX_ITER 100
 
 typedef union color_u
 {
@@ -38,27 +38,12 @@ typedef union color_u
 	uint32_t	color;
 }	t_color;
 
-//typedef struct s_complex_nums
-//{
-//	double			real;
-//	double			imaginary;
-//}					t_complex_num;
-
-//TODO Data structs refactoren
-
-// typedef struct s_pixel
-// {
-// 	uint32_t		coordinate_x;
-// 	uint32_t		coordinate_y;
-// }					t_pixel;
-
 typedef struct s_image
 {
 	mlx_image_t		*img;
-	// t_pixel			*pixels;
 }					t_image;
 
-typedef int (*t_fractal_func)(double x, double y, char **args);
+typedef int (*t_fractal_func)(double x, double y, double o, double t);
 
 //almondx = mousepos_x bread_y = mousepos_y
 typedef struct s_data
@@ -68,13 +53,13 @@ typedef struct s_data
 	double			zoom;
     double			almond_x;
     double			bread_y;
-	char			**args;
+	double			*args;
 	double			in_values;
 	t_fractal_func	fractal_type;
 }					t_data;
 
-int		almondbread(double almond, double bread, char **data);
-int		juliet(double almond, double bread, char **args);
+int		almondbread(double almond, double bread, double o, double t);
+int		juliet(double almond, double bread, double o, double t);
 void    render_surrender(t_data *data);
 void	free_all(t_data *data);
 double  ft_todd(const char *str);
