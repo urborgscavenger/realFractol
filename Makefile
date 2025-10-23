@@ -6,7 +6,7 @@
 #    By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 16:41:21 by mbauer            #+#    #+#              #
-#    Updated: 2025/10/22 18:00:06 by mbauer           ###   ########.fr        #
+#    Updated: 2025/10/23 22:36:56 by mbauer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ SRCFILES =	$(SRC_DIR)/main.c $(SRC_DIR)/almondbread.c $(SRC_DIR)/juliet.c $(SRC_
 
 OBJS = $(SRCFILES:srcs/%.c=$(OBJ_DIR)/%.o)
 CC = cc
-CFLAGS = -Ofast -funroll-loops -ftree-vectorize \
+CFLAGS = -Wall -Wextra -Werror -Ofast -funroll-loops -ftree-vectorize -ffast-math -O3 -march=native \
 	-fomit-frame-pointer -finline-functions \
-	-Wall -Wextra -Werror -I./includes/ -I./Libft/ \
+	-I./includes/ -I./Libft/ \
 	-pthread 
 LDFLAGS := -ldl -lglfw -pthread -lm
 UNAME_S :=$(shell uname -s)
