@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:46:48 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/23 21:45:24 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/23 22:42:03 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define WIDTH 800
 # define HEIGHT 600
 
-# define MAX_ITER 100
+# define MAX_ITER 200
 
 typedef union color_u
 {

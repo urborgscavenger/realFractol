@@ -6,7 +6,7 @@
 /*   By: mbauer <mbauer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:11:08 by mbauer            #+#    #+#             */
-/*   Updated: 2025/10/23 21:43:10 by mbauer           ###   ########.fr       */
+/*   Updated: 2025/10/24 14:23:38 by mbauer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ static int	ft_strcmp(const char *s1, const char *s2)
 static void	print_err(void)
 {
 	ft_putstr_fd("Das ist ochsenkot...\n", 1);
+	ft_putstr_fd("valid input: ./fractol mandelbrot ", 1);
+	ft_putstr_fd("|| ./fractol Mandelbrot\n", 1);
+	ft_putstr_fd("valid input: ./fractol julia <real> <imaginary>", 1);
+	ft_putstr_fd("|| ./fractol julia <real> <imaginary>\n", 1);
 }
 
 void	parse_julia(t_data *data, char **argv)
